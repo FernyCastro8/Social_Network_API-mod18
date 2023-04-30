@@ -2,8 +2,7 @@ const express = require('express');
 const db = require('./config/connection');
 const PORT = 3001;
 const mongoose = require('mongoose');
-const dayjs = require('dayjs');
-const api_routes = require('./controllers/api_routes');
+const api_routes = require('./controllers/index.js');
 
 
 

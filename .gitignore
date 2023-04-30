@@ -2,4 +2,5 @@ README---Starter-Code.md
 .DS_STORE
 node_modules
 Assets
+.env
 

@@ -1,5 +1,11 @@
-const mongoose = require('mongoose');
+const { connect, connection } = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/turtels_mongoose');
+const connectionString =
+    process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/social-network-api';
 
-module.exports = mongoose.connection;
+connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+module.exports = connection;

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const { Schema, Model } = require('mongoose');
 
 
 const UserSchema = new mongoose.Schema({
@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        // Use a regular expression to validate the email address ??
         validate: {
             validator: validator.isEmail,
             message: '{ VALUE } is not a valid email',
@@ -20,29 +21,36 @@ const UserSchema = new mongoose.Schema({
     },
     thoughts: [
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'Thought'
         }
     ],
     friends: [
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         }
     ],
     toJSON: {
         virtuals: true
     },
-    id: true
+    id: false
 
 });
 
-// Get total count of friends on retrieval
-UserSchema.virtual('friendCount').get(() => {
-    return this.friends.length;
-});
+
+// Creates a property 'friends' to Get total count of friends on retrieval
+UserSchema.virtual('friendCount')
+    //getter method
+    .get(() => {
+        return this.friends.length;
+    });
 
 
-module.exports = UserSchema;
+// Creates the User model using the UserSchema
+const User = mongoose.model('user', UserSchema);
+
+
+module.exports = User;
 
 
