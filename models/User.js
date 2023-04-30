@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const User = new mongoose.Schema({
+
+
+const UserSchema = new mongoose.Schema({
     user_name: {
         type: String,
         unique: true,
@@ -11,20 +13,36 @@ const User = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        validate:{
+        validate: {
             validator: validator.isEmail,
             message: '{ VALUE } is not a valid email',
-    }},
-    thoughts:[
-
+        }
+    },
+    thoughts: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Thought'
+        }
     ],
     friends: [
-
-    ]
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    toJSON: {
+        virtuals: true
+    },
+    id: true
 
 });
 
+// Get total count of friends on retrieval
+UserSchema.virtual('friendCount').get(() => {
+    return this.friends.length;
+});
 
-module.exports = User;
+
+module.exports = UserSchema;
 
 
