@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema, Model } = require('mongoose');
-
+const validator = require('validator');
+// npm package for validating strings
+// https://www.npmjs.com/package/validator
+// trying to use validator.isEmail() to validate email address
 
 const UserSchema = new mongoose.Schema({
-    user_name: {
+    username: {
         type: String,
         unique: true,
         required: true,
@@ -15,19 +18,21 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         // Use a regular expression to validate the email address ??
         validate: {
-            validator: validator.isEmail,
+            validator: (value) => {
+                return validator.isEmail(value);
+            },
             message: '{ VALUE } is not a valid email',
         }
     },
     thoughts: [
         {
-            type: Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Thought'
         }
     ],
     friends: [
         {
-            type: Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         }
     ],
@@ -52,5 +57,3 @@ const User = mongoose.model('user', UserSchema);
 
 
 module.exports = User;
-
-
