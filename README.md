@@ -1,8 +1,10 @@
-# Social Network APIs
+# Social Network API
 
 ## Description
 ```
-This app was generated in the means of a social midea startup. The app uses a NoSQL database. This is so the startup can handle large amounts of unstructed data.
+This app was generated in the means of a social midea startup. 
+The app uses a NoSQL database. 
+This is so the startup can handle large amounts of unstructed data.
 ```
 
 ## Table of Contents
@@ -11,7 +13,7 @@ This app was generated in the means of a social midea startup. The app uses a No
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
-- [Screen-Shots](#screenshots)
+- [Walkthrough Video](#walkthrough_video)
 
 ---
 ### Installation
@@ -78,5 +80,5 @@ SOFTWARE.
 
 ---
 
-### WalkthroughVideo
+#### Walkthrough_Video
 
