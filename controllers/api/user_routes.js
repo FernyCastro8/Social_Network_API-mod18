@@ -6,7 +6,7 @@ const { User } = require('../../models');
 
 // Get all users
 // listeing on http:localhost:3001/api/users
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
     // to find all users
     const users = await User.find();
 
@@ -15,7 +15,7 @@ router.get('/users', async (req, res) => {
 
 // Get a single user by its _id
 // listeing on http:localhost:3001/api/users/:id
-router.get('/users/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     // to find a single user by its _id
     const user = await User.findOne({ _id: ObjectId.req.params.id })
 });
@@ -23,14 +23,18 @@ router.get('/users/:id', async (req, res) => {
 
 // Create a new user
 // listeing on http:localhost:3001/api/users
-router.post('/users', async (req, res) => {
+router.post('/', async (req, res) => {
+    console.log(req.body)
     try {
         const user = await User.create(req.body);
 
-        req.send(user, 'User has been created');
+        res.status(200).json(user);
+        // res.json(user)
+        // return res.status(200)
 
     } catch (error) { // to send back client error if it fails
         res.status(500).send(error);
+        console.log(error, 'Internal server error')
         // res.status(500).send(err.errors.type.properties.message);
         // err.errors.type.properties.message is the error message from the model
     }
@@ -39,7 +43,7 @@ router.post('/users', async (req, res) => {
 
 // Update a user by its _id
 // listeing on http:localhost:3001/api/users:id
-router.put('/users/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     const updateUser = await User.findOneAndUpdate({
         // to find a single user by its _id
         _id: ObjectId.req.params.id
@@ -59,7 +63,7 @@ router.put('/users/:id', async (req, res) => {
 
 // Delete a user by its _id
 // listeing on http:localhost:3001/api/users:id
-router.delete('/users/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const deleteUser = await User.findOneAndDelete({
         // to find a single user by its _id
         _id: ObjectId.req.params.id
@@ -67,12 +71,13 @@ router.delete('/users/:id', async (req, res) => {
     res.send(deleteUser, 'User has been deleted');
 });
 
+
 // bonus: to delete all users associated thoughts when a user is deleted
 
 
 //--------------------------------------------------------------------------------
 
-// /api/users/:userId/friends/:friendId
+// "/:userId/friends/:friendId"
 
 // POST to add a new friend to a user's friend list
 
