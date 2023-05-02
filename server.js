@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
-const api_routes = require('./controllers');
+const api_routes = require('./routes/api');
 
 const app = express();
 app.use(express.json());
