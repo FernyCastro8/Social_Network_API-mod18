@@ -1,10 +1,10 @@
-const { Schema, types } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 const dayjs = require('dayjs');
 
-const ReactionSchema = new mongoose.Schema({
+const reactionSchema = new Schema({
     reactionId: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: () => new Types.ObjectId
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId()
     },
     reactionBody: {
         type: String,
@@ -22,13 +22,17 @@ const ReactionSchema = new mongoose.Schema({
         // Getter method to format the timestamp on query
         get: (createdAtVal) => dayjs(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
     },
-    toJSON: {
-        getters: true,
-    },
-    id: false
-});
+
+},
+    {
+        toJSON: {
+            getters: true,
+        },
+        id: false
+    }
+);
 
 
 // Creates the Reaction model using the ReactionSchema
 
-module.exports = ReactionSchema;
+module.exports = reactionSchema;
