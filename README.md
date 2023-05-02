@@ -24,7 +24,6 @@ This is so the startup can handle large amounts of unstructed data.
 - express 4.18.2
 - mongoose 6.9.2
 - dayjs 1.11.7
-- validator 13.9.0
 
 ---
 ## Usage
