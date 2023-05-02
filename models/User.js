@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, Model } = require('mongoose');
-const validator = require('validator');
-// npm package for validating strings
-// https://www.npmjs.com/package/validator
-// trying to use validator.isEmail() to validate email address
-// or Use a regular expression to validate the email address ??
+
+
 
 const UserSchema = new mongoose.Schema(
     {
@@ -17,7 +14,7 @@ const UserSchema = new mongoose.Schema(
         email: {
             type: String,
             required: true,
-            unique: [true, 'That user already exixts!'],
+            unique: true,
             // email validation
             // match: [/.+@.+\..+/, 'Must match an email address!']
             validate: [(email) => {

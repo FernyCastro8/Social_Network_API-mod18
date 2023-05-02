@@ -6,18 +6,29 @@ const { User } = require('../../models');
 
 // Get all users
 // listeing on http:localhost:3001/api/users
-router.get('/', async (req, res) => {
+router.get('/users', async (req, res) => {
     // to find all users
     const users = await User.find();
 
     res.json(users);
+
+    console.log(users)
 });
 
 // Get a single user by its _id
 // listeing on http:localhost:3001/api/users/:id
 router.get('/:id', async (req, res) => {
-    // to find a single user by its _id
-    const user = await User.findOne({ _id: ObjectId.req.params.id })
+    try {
+        // to find a single user by its _id
+        const user = await User.findOne({
+            _id: ObjectId(req.params.id)
+        });
+
+        res.json(user);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+
 });
 
 
@@ -46,7 +57,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const updateUser = await User.findOneAndUpdate({
         // to find a single user by its _id
-        _id: ObjectId.req.params.id
+        _id: ObjectId(req.params.id)
     },
         {       // to update the user
             username: req.body.username,
