@@ -3,6 +3,21 @@ const { ObjectId } = require('mongoose').Types;
 // ObjectId() method for converting studentId string into an ObjectId for querying database
 const { User } = require('../models');
 
+const {
+    getAllUsers,
+    getUserById,
+    createUser,
+    updateUser,
+    deleteUser,
+} = require('../controllers/userController');
+
+
+
+
+
+
+
+
 
 // Get all users
 // listeing on http:localhost:3001/api/users
