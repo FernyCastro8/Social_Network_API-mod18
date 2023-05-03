@@ -60,5 +60,25 @@ module.exports = {
             })
             .then(() => res.json({ message: 'User and associated thoughts deleted!' }))
             .catch((err) => { res.status(500).json(err) });
-    }
+    },
+
+
+    // Add a reaction to a thought
+    // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions
+    addReaction(req, res) {
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $push: { reactions: req.body } },
+            { runValidators: true, new: true })
+            .then((thought) => {
+                if (!thought) {
+                    return res.status(404).json({ message: 'No thought found with this id!' });
+                }
+                res.json({ message: 'Reaction added to thought!', thought });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 };
