@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { ObjectId } = require('mongoose').Types;
 // ObjectId() method for converting studentId string into an ObjectId for querying database
-const { User } = require('../../models');
+const { User } = require('../models');
 
 
 // Get all users

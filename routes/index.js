@@ -1,7 +1,11 @@
 const router = require('express').Router();
-const apiRoutes = require("./api")
+const userRoutes = require("./user_routes")
+const thoughtRoutes = require('./thoughs_routes');
 
-router.use("/api", apiRoutes)
+const apiRoutes = (userRoutes, thoughtRoutes)
+
+// listening on http://localhost:3001/api
+router.use("/api", apiRoutes);
 
 
 module.exports = router;
