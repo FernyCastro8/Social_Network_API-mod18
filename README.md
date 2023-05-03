@@ -17,8 +17,12 @@ This is so the startup can handle large amounts of unstructed data.
 
 ---
 ### Installation
+- Open your favorite text editor of choice
+- Open terminal and enter the following command:
+   `` npm start to start sever || npm run dev to to automatically restart server``
+- Open API testing tool or Platform of choice & start testing routes
 
-##### **Modules / Packages**
+##### **Modules / Packages / Dependencies**
 
 - node 18.5.0
 - express 4.18.2
