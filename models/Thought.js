@@ -33,7 +33,7 @@ const thoughtSchema = new mongoose.Schema({
 
 thoughtSchema.virtual('reactionCount')
     // Getter method
-    .get(() => {
+    .get(function () {
         return this.reactions.length;
     });
 

@@ -1,4 +1,6 @@
 const { User, Thought } = require('../models');
+const { ObjectId } = require('mongoose').Types;
+// ObjectId() method for converting studentId string into an ObjectId for querying database
 
 module.exports = {
     // Get all thoughts
@@ -68,6 +70,7 @@ module.exports = {
     // listening on http:localhost:3001/api/thoughts/:id
     updateThought(req, res) {
         Thought.findOneAndUpdate(
+            //  thoghtId is key value to set to find thought when testing API
             { _id: req.params.thoughtId },
             { $set: req.body },
             { runValidators: true, new: true }

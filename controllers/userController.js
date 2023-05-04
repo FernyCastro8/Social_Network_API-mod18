@@ -1,23 +1,30 @@
 const { User, Thought } = require('../models');
-
+const { ObjectId } = require('mongoose').Types;
+// ObjectId() method for converting studentId string into an ObjectId for querying database
 
 module.exports = {
     // Get all users
     // listeing on http:localhost:3001/api/users
-    async getAllUsers(req, res) {
-        try {
-            const users = await User.find({});
-            res.json(users);
-        } catch (err) {
-            console.log(err);
-            res.status(500).json(err);
-        }
+    getAllUsers(req, res) {
+        console.log('userRoutes')
+        User.find({})
+            .populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
+            .select('-__v')
+            .then((users) => res.json(users))
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
     },
 
     // Get a single user by its _id
     // listeing on http:localhost:3001/api/users/:id
     getUserById(req, res) {
-        User.findOne({ _id: req.params.id })
+        console.log('id_userRoutes')
+        User.findOne({ _id: req.params.user_id })
             .select('-__v')
             .then((user) => {
                 !user
@@ -41,7 +48,7 @@ module.exports = {
     // listeing on http:localhost:3001/api/users:id
     updateUser(req, res) {
         User.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.user_id },
             { $set: req.body },
             { runValidators: true, new: true }
         ).then((user) => {
@@ -54,7 +61,7 @@ module.exports = {
     // Delete a user by its _id
     // listeing on http:localhost:3001/api/users:id
     deleteUser(req, res) {
-        User.findOneAndDelete({ _id: req.params.id })
+        User.findOneAndDelete({ _id: req.params.user_id })
             .then((user) => {
                 !user
                     ? res.status(404).json({ message: 'No user found with this id!' })
