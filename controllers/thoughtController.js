@@ -4,6 +4,7 @@ module.exports = {
     // Get all thoughts
     // listening on http:localhost:3001/api/thoughts
     getAllThoughts(req, res) {
+        console.log('get all thoughts has been activated')
         Thought.find({})
             .populate({
                 path: 'reactions',
@@ -126,6 +127,24 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+
+    // Remove a reaction from a thought
+    // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId
+    removeReaction(req, res) {
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reactionId } } },
+            { runValidators: true, new: true }
+        ).then((thought) => {
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought found with this id!' });
+            }
+        })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
 
 
 };

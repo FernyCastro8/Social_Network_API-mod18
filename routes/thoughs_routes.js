@@ -9,7 +9,9 @@ const {
     createThought,
     updateThought,
     deleteThought,
-    addReaction
+    addReaction,
+    removeReaction
+
 } = require('../controllers/thoughtController');
 
 // http://localhost:3001/api/thoughts
@@ -23,12 +25,7 @@ router.route('/thoughts/:id').get(getThoughtById).put(updateThought).delete(dele
 
 // // Get all thoughts
 // // listeing on http:localhost:3001/api/thoughts
-// router.get('/thoughts', async (req, res) => {
-//     // to find all thoughts
-//     const thoughts = await Thought.find();
-
-//     res.json(thoughts);
-// });
+router.route('/thoughts').get(getAllThoughts);
 
 // // Get a single thought by its _id
 // // listeing on http:localhost:3001/api/thoughts/:id
@@ -40,6 +37,8 @@ router.route('/thoughts/:id').get(getThoughtById).put(updateThought).delete(dele
 
 // // Create a new thought
 // // http://localhost:3001/api/thoughts
+
+router.route('/thoughts').post(createThought);
 // router.post('/thoughts', async (req, res) => {
 //     const thought = await Thought.create(req.body)
 //     res.send(thought, 'Thought has been created');
@@ -57,6 +56,8 @@ router.route('/thoughts/:id').get(getThoughtById).put(updateThought).delete(dele
 
 // // Update a thought by its _id
 // //  http://localhost:3001/api/thoughts/:id
+router.route('/thoughts/:id').put(updateThought);
+
 // router.put('/thoughts/:id', async (req, res) => {
 //     const updateThought = await Thought.findOneAndUpdate({
 //         // to find a single thought by its _id
@@ -77,6 +78,8 @@ router.route('/thoughts/:id').get(getThoughtById).put(updateThought).delete(dele
 
 // // Delete a thought by its _id
 // // http://localhost:3001/api/thoughts/:id
+router.route('/thoughts/:id').delete(deleteThought);
+
 // router.delete('/thoughts/:id', async (req, res) => {
 //     const deleteThought = await Thought.findOneAndDelete({
 //         // to find a single thought by its _id
@@ -87,10 +90,21 @@ router.route('/thoughts/:id').get(getThoughtById).put(updateThought).delete(dele
 // });
 
 
+// Add a reaction to a thought
+// http://localhost:3001/api/thoughts/:id/reactions
+router.route('/thoughts/:id/reactions').post(addReaction);
+
+// Delete a reaction from a thought
+// http://localhost:3001/api/thoughts/:id/reactions/:reactionId
+router.route('/thoughts/:id/reactions/:reactionId').delete(removeReaction);
+
+
+
 /*  
 /api/thoughts /: thoughtId / reactions
 
 POST to create a reaction stored in a single thought's reactions array field
+
 
 DELETE to pull and remove a reaction by the reaction's reactionId value
 */

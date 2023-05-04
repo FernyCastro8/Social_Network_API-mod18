@@ -15,22 +15,23 @@ const {
 
 
 // http://localhost:3001/api/users
-router.route('/').get(getAllUsers).post(createUser);
+router.route('/users').get(getAllUsers)
 
 // http://localhost:3001/api/users/:id
 router.route('/users/:id').get(getUserById).put(updateUser).delete(deleteUser);
 
 router.route('/users/user:id/thoughts').post(addReaction);
 
-router.router('/')
 
 
 
 
+module.exports = router;
 
 
-// // Get all users
-// // listeing on http:localhost:3001/api/users
+
+// Get all users
+// listeing on http:localhost:3001/api/users
 // router.get('/users', async (req, res) => {
 //     // to find all users
 //     const users = await User.find();
@@ -119,5 +120,5 @@ router.router('/')
 // DELETE to remove a friend from a user's friend list
 
 
-module.exports = router;
+// module.exports = router;
 

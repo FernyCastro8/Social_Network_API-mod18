@@ -1,15 +1,17 @@
 const { User, Thought } = require('../models');
 
+
 module.exports = {
     // Get all users
     // listeing on http:localhost:3001/api/users
-    getAllUsers(req, res) {
-        User.find({})
-            .then((user) => res.json(user))
-            .catch((err) => {
-                console.log(err);
-                res.status(500).json(err);
-            });
+    async getAllUsers(req, res) {
+        try {
+            const users = await User.find({});
+            res.json(users);
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
     },
 
     // Get a single user by its _id
@@ -81,4 +83,24 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+
+    // Delete a reaction to a thought
+    // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId
+    deleteReaction(req, res) {
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reactionId } } },
+            { runValidators: true, new: true })
+            .then((thought) => {
+                if (!thought) {
+                    return res.status(404).json({ message: 'No thought found with this id!' });
+                }
+                res.json({ message: 'Reaction deleted from thought!', thought });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
+
 };
