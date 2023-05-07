@@ -50,9 +50,9 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 
 #### Ferny Castro 
 
-[Github](https://github.com/FernyCastro8)
+🔗 [Github](https://github.com/FernyCastro8)
 
-[Linkedin]()
+🔗 [Linkedin]()
 
 
 ---
@@ -62,7 +62,7 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 
 Copyright (c) 2023 Ferny Castro
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+🔗 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
