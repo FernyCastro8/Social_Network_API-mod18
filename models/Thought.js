@@ -13,7 +13,7 @@ const thoughtSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         // Getter method to format the timestamp on query
-        get: (createdAtVal) => dayjs(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+        get: (createdAtVal) => dayjs(createdAtVal).format('lll')
     },
     username: {
         type: String,

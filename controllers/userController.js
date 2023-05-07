@@ -6,7 +6,7 @@ module.exports = {
     // Get all users
     // listeing on http:localhost:3001/api/users
     getAllUsers(req, res) {
-        console.log('userRoutes')
+        console.log('user Routes')
         User.find({})
             .populate({
                 path: 'thoughts',
@@ -36,6 +36,7 @@ module.exports = {
     // Create a new user
     // listeing on http:localhost:3001/api/users
     createUser(req, res) {
+        console.log('create userRoutes')
         User.create(req.body)
             .then((user) => res.json(user))
             .catch((err) => {
@@ -47,6 +48,7 @@ module.exports = {
     // Update a user by its _id
     // listeing on http:localhost:3001/api/users:id
     updateUser(req, res) {
+        console.log('update userRoutes')
         User.findOneAndUpdate(
             { _id: req.params.user_id },
             { $set: req.body },
@@ -61,6 +63,7 @@ module.exports = {
     // Delete a user by its _id
     // listeing on http:localhost:3001/api/users:id
     deleteUser(req, res) {
+        console.log('id_delete userRoutes')
         User.findOneAndDelete({ _id: req.params.user_id })
             .then((user) => {
                 !user
@@ -75,8 +78,9 @@ module.exports = {
     // Add a reaction to a thought
     // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions
     addReaction(req, res) {
+        console.log('id_add Reaction userRoutes')
         Thought.findOneAndUpdate(
-            { _id: req.params.thoughtId },
+            { _id: req.params.thought_id },
             { $push: { reactions: req.body } },
             { runValidators: true, new: true })
             .then((thought) => {
@@ -94,9 +98,10 @@ module.exports = {
     // Delete a reaction to a thought
     // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId
     deleteReaction(req, res) {
+        console.log('delete reaction userRoutes')
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $pull: { reactions: { reactionId: req.params.reactionId } } },
+            { $pull: { reactions: { reactionId: req.params.reaction } } },
             { runValidators: true, new: true })
             .then((thought) => {
                 if (!thought) {

@@ -7,8 +7,6 @@ const {
     createUser,
     updateUser,
     deleteUser,
-    addReaction,
-    deleteReaction
 } = require('../../controllers/userController');
 
 // Get all users
@@ -18,8 +16,6 @@ router.route('/').get(getAllUsers).post(createUser)
 // Get user by id   //    Update user by id   //  Delete user by id
 router.route('/:user_id').get(getUserById).put(updateUser).delete(deleteUser)
 
-// http:localhost:3001/api/thoughts/:thoughtId/reactions
-router.route('/thoughts/:thoughtId/reactions')
 
 
 
