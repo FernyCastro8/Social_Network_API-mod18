@@ -47,7 +47,7 @@ const UserSchema = new mongoose.Schema(
 // Creates a property 'friends' to Get total count of friends on retrieval
 UserSchema.virtual('friendCount')
     //getter method
-    .get(() => {
+    .get(function () {
         return this.friends.length;
     });
 

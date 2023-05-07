@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // listening on http://localhost:3001/api
-app.use('/api', api_routes)
+app.use('/', api_routes)
 
 
 db.once('open', (err) => {

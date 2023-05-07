@@ -1,11 +1,19 @@
 const { User, Thought } = require('../models');
+const { ObjectId } = require('mongoose').Types;
+// ObjectId() method for converting studentId string into an ObjectId for querying database
 
 module.exports = {
     // Get all users
     // listeing on http:localhost:3001/api/users
     getAllUsers(req, res) {
+        console.log('user Routes')
         User.find({})
-            .then((user) => res.json(user))
+            .populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
+            .select('-__v')
+            .then((users) => res.json(users))
             .catch((err) => {
                 console.log(err);
                 res.status(500).json(err);
@@ -15,7 +23,8 @@ module.exports = {
     // Get a single user by its _id
     // listeing on http:localhost:3001/api/users/:id
     getUserById(req, res) {
-        User.findOne({ _id: req.params.id })
+        console.log('id_userRoutes')
+        User.findOne({ _id: req.params.user_id })
             .select('-__v')
             .then((user) => {
                 !user
@@ -27,6 +36,7 @@ module.exports = {
     // Create a new user
     // listeing on http:localhost:3001/api/users
     createUser(req, res) {
+        console.log('create userRoutes')
         User.create(req.body)
             .then((user) => res.json(user))
             .catch((err) => {
@@ -38,8 +48,9 @@ module.exports = {
     // Update a user by its _id
     // listeing on http:localhost:3001/api/users:id
     updateUser(req, res) {
+        console.log('update userRoutes')
         User.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.user_id },
             { $set: req.body },
             { runValidators: true, new: true }
         ).then((user) => {
@@ -52,7 +63,8 @@ module.exports = {
     // Delete a user by its _id
     // listeing on http:localhost:3001/api/users:id
     deleteUser(req, res) {
-        User.findOneAndDelete({ _id: req.params.id })
+        console.log('id_delete userRoutes')
+        User.findOneAndDelete({ _id: req.params.user_id })
             .then((user) => {
                 !user
                     ? res.status(404).json({ message: 'No user found with this id!' })
@@ -66,8 +78,9 @@ module.exports = {
     // Add a reaction to a thought
     // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions
     addReaction(req, res) {
+        console.log('id_add Reaction userRoutes')
         Thought.findOneAndUpdate(
-            { _id: req.params.thoughtId },
+            { _id: req.params.thought_id },
             { $push: { reactions: req.body } },
             { runValidators: true, new: true })
             .then((thought) => {
@@ -81,4 +94,25 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+
+    // Delete a reaction to a thought
+    // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId
+    deleteReaction(req, res) {
+        console.log('delete reaction userRoutes')
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionId: req.params.reaction } } },
+            { runValidators: true, new: true })
+            .then((thought) => {
+                if (!thought) {
+                    return res.status(404).json({ message: 'No thought found with this id!' });
+                }
+                res.json({ message: 'Reaction deleted from thought!', thought });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
+
 };
