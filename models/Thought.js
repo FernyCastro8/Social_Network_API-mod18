@@ -20,13 +20,14 @@ const thoughtSchema = new mongoose.Schema({
         required: true,
     },
     reactions: {
-        reactions: [reactionSchema]
+        // Array of nested documents created with the reactionSchema
+        type: [reactionSchema]
     },
 },
     {
         toJSON: {
             virtuals: true,
-        }, Id: false
+        }, id: false
     }
 );
 
