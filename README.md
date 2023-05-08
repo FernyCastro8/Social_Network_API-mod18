@@ -2,9 +2,7 @@
 
 ## Description
 ```
-This app was generated in the means of a social midea startup. 
-The app uses a NoSQL database. 
-This is so the startup can handle large amounts of unstructed data.
+Introducing Current WeatherDashboard, a user-friendly app that provides real-time weather information and a 5-day forecast for your current city. Retrieve weather details by entering your longitude and latitude coordinates. The app utilizes advanced weather APIs for accurate and up-to-date data. Store previous searches in the browser's local storage for quick access to weather information. Stay prepared with Current WeatherDashboard, your go-to weather companion.
 ```
 
 ## Table of Contents
