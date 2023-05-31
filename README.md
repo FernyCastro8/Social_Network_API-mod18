@@ -2,9 +2,12 @@
 
 ## Description
 ```
+Mongoose  Object Data Modeling (ODM)
+
 This app was generated in the means of a social midea startup. 
 The app uses a NoSQL database. 
 This is so the startup can handle large amounts of unstructed data.
+Uses Express.js for routing, a MongoDB database, and the Mongoose ODM. 
 ```
 
 ## Table of Contents
@@ -13,7 +16,7 @@ This is so the startup can handle large amounts of unstructed data.
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
-- [Walkthrough Video](#walkthrough_video)
+- [Demo](#demo)
 
 ---
 ### Installation
@@ -71,8 +74,7 @@ Copyright (c) 2023 Ferny Castro
 
 ---
 
-#### Walkthrough_Video
-
+#### Demo
 
 https://user-images.githubusercontent.com/124219457/236706277-097342bd-0af8-4ba4-bf66-d1c5fb362c4f.mov
 
