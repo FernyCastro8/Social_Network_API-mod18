@@ -24,10 +24,11 @@ This is so the startup can handle large amounts of unstructed data.
 
 ##### **Modules / Packages / Dependencies**
 
-- node 18.5.0
+- node js 18.5.0
 - express 4.18.2
 - mongoose 6.9.2
 - dayjs 1.11.7
+Insomnia
 
 ---
 ## Usage
