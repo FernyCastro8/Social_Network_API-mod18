@@ -28,7 +28,7 @@ This is so the startup can handle large amounts of unstructed data.
 - express 4.18.2
 - mongoose 6.9.2
 - dayjs 1.11.7
-Insomnia
+- Insomnia Rest Api
 
 ---
 ## Usage
@@ -53,7 +53,7 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 
 🔗 [Github](https://github.com/FernyCastro8)
 
-🔗 [Linkedin]()
+🔗 [Linkedin](https://www.linkedin.com/in/ferny-castro/)
 
 
 ---
