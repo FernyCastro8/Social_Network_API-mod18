@@ -74,8 +74,10 @@ Copyright (c) 2023 Ferny Castro
 
 ---
 
-#### Demo
+### Demo
 
-https://user-images.githubusercontent.com/124219457/236706277-097342bd-0af8-4ba4-bf66-d1c5fb362c4f.mov
+https://github.com/FernyCastro8/Social_Network_API-mod18/assets/124219457/410a33f8-c61f-4484-a4f9-694cba51f72d
+
+
 
 
