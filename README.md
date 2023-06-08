@@ -77,8 +77,8 @@ Copyright (c) 2023 Ferny Castro
 🔗 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
-<p align="center"> ### Demo<p/>
 
+### Demo
 
 https://github.com/FernyCastro8/Social_Network_API-mod18/assets/124219457/410a33f8-c61f-4484-a4f9-694cba51f72d
 
