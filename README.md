@@ -19,6 +19,7 @@ Uses Express.js for routing, a MongoDB database, and the Mongoose ODM.
 - [Demo](#demo)
 
 ---
+
 ### Installation
 - Open your favorite text editor of choice
 - Open terminal and enter the following command:
@@ -38,6 +39,7 @@ software:
 - Insomnia Rest API
 
 ---
+
 ## Usage
 ```
 WHEN user enters the command to invoke the application
@@ -54,6 +56,7 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 ```
 
 ---
+
 ## Credits
 
 #### Ferny Castro 
@@ -64,6 +67,7 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 
 
 ---
+
 ## License
 
 #### MIT License
