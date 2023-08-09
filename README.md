@@ -1,14 +1,12 @@
 # Social Network API
 
 ## Description
-```
+
 Mongoose  Object Data Modeling (ODM)
 
-This app was generated in the means of a social midea startup. 
-The app uses a NoSQL database. 
-This is so the startup can handle large amounts of unstructed data.
-Uses Express.js for routing, a MongoDB database, and the Mongoose ODM. 
-```
+Developed for a social media startup, this application leverages NoSQL databases to efficiently manage substantial unstructured data.
+Powered by Express.js for seamless routing, it employs MongoDB and Mongoose Object Data Modeling (ODM) to ensure robust scalability and streamlined data handling.
+
 
 ## Table of Contents
 
