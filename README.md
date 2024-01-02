@@ -2,8 +2,9 @@
 
 ## Description
 
-```
-Introducing Current WeatherDashboard, a user-friendly app that provides real-time weather information and a 5-day forecast for your current city. Retrieve weather details by entering your longitude and latitude coordinates. The app utilizes advanced weather APIs for accurate and up-to-date data. Store previous searches in the browser's local storage for quick access to weather information. Stay prepared with Current WeatherDashboard, your go-to weather companion.
+```Mongoose Object Data Modeling (ODM)
+
+Developed for a social media startup, this application leverages NoSQL databases to efficiently manage substantial unstructured data. Powered by Express.js for seamless routing, it employs MongoDB and Mongoose Object Data Modeling (ODM) to ensure robust scalability and streamlined data handling.
 ```
 
 ## Table of Contents
@@ -55,8 +56,12 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 #### Ferny Castro
 
 [Github](https://github.com/FernyCastro8)
+<img src="https://i.stack.imgur.com/tskMh.png" alt="github">
 
-[Linkedin]()
+[Linkedin](https://www.linkedin.com/in/ferny-castro/)
+<img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
+
+[Portfolio](https://fernycastro.com/)
 
 ---
 
