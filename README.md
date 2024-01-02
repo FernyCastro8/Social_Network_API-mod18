@@ -1,6 +1,7 @@
 # Social Network API
 
 ## Description
+
 ```
 Introducing Current WeatherDashboard, a user-friendly app that provides real-time weather information and a 5-day forecast for your current city. Retrieve weather details by entering your longitude and latitude coordinates. The app utilizes advanced weather APIs for accurate and up-to-date data. Store previous searches in the browser's local storage for quick access to weather information. Stay prepared with Current WeatherDashboard, your go-to weather companion.
 ```
@@ -14,10 +15,12 @@ Introducing Current WeatherDashboard, a user-friendly app that provides real-tim
 - [Walkthrough Video](#walkthrough_video)
 
 ---
+
 ### Installation
+
 - Open your favorite text editor of choice
 - Open terminal and enter the following command:
-   `` npm start to start sever || npm run dev to to automatically restart server``
+   ``npm start to start sever || npm run dev to to automatically restart server``
 - Open API testing tool or Platform of choice & start testing routes
 
 ##### **Modules / Packages / Dependencies**
@@ -28,7 +31,9 @@ Introducing Current WeatherDashboard, a user-friendly app that provides real-tim
 - dayjs 1.11.7
 
 ---
+
 ## Usage
+
 ```
 WHEN user enters the command to invoke the application
 THEN the server is started and the Mongoose models are synced to the MongoDB database.
@@ -44,16 +49,17 @@ THEN user is able to successfully create and delete reactions to thoughts and ad
 ```
 
 ---
+
 ## Credits
 
-#### Ferny Castro 
+#### Ferny Castro
 
 [Github](https://github.com/FernyCastro8)
 
 [Linkedin]()
 
-
 ---
+
 ## License
 
 #### MIT License
@@ -65,4 +71,3 @@ Copyright (c) 2023 Ferny Castro
 ---
 
 #### Walkthrough_Video
-
