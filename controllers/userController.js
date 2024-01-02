@@ -110,45 +110,45 @@ module.exports = {
         // Delete a friend from a user's friend list
         const friendId = req.params.friend_id;
     }
-
-    // Add a reaction to a thought
-    // listening on http:localhost:3001/api/thoughts/:thought_id/reactions
-    // addReaction(req, res) {
-    //     console.log('id_add Reaction userRoutes')
-    //     Thought.findOneAndUpdate(
-    //         { _id: req.params.thought_id },
-    //         { $push: { reactions: req.body } },
-    //         { runValidators: true, new: true })
-    //         .then((thought) => {
-    //             if (!thought) {
-    //                 return res.status(404).json({ message: 'No thought found with this id!' });
-    //             }
-    //             res.json({ message: 'Reaction added to thought!', thought });
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             res.status(500).json(err);
-    //         });
-    // },
-
-    // Delete a reaction to a thought
-    // listening on http:localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId
-    // deleteReaction(req, res) {
-    //     console.log('delete reaction userRoutes')
-    //     Thought.findOneAndUpdate(
-    //         { _id: req.params.thoughtId },
-    //         { $pull: { reactions: { reactionId: req.params.reaction } } },
-    //         { runValidators: true, new: true })
-    //         .then((thought) => {
-    //             if (!thought) {
-    //                 return res.status(404).json({ message: 'No thought found with this id!' });
-    //             }
-    //             res.json({ message: 'Reaction deleted from thought!', thought });
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             res.status(500).json(err);
-    //         });
-    // }
-
 };
+
+
+// Add a reaction to a thought
+// listening on http:localhost:3001/api/thoughts/:thought_id/reactions
+// addReaction(req, res) {
+//     console.log('id_add Reaction userRoutes')
+//     Thought.findOneAndUpdate(
+//         { _id: req.params.thought_id },
+//         { $push: { reactions: req.body } },
+//         { runValidators: true, new: true })
+//         .then((thought) => {
+//             if (!thought) {
+//                 return res.status(404).json({ message: 'No thought found with this id!' });
+//             }
+//             res.json({ message: 'Reaction added to thought!', thought });
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// },
+
+// Delete a reaction to a thought
+// listening on http:localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId
+// deleteReaction(req, res) {
+//     console.log('delete reaction userRoutes')
+//     Thought.findOneAndUpdate(
+//         { _id: req.params.thoughtId },
+//         { $pull: { reactions: { reactionId: req.params.reaction } } },
+//         { runValidators: true, new: true })
+//         .then((thought) => {
+//             if (!thought) {
+//                 return res.status(404).json({ message: 'No thought found with this id!' });
+//             }
+//             res.json({ message: 'Reaction deleted from thought!', thought });
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// }
